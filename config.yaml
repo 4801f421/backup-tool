@@ -1,0 +1,21 @@
+output_folder: /path/to/folder/for/saving/backups
+telegram:
+   bot_token: telegram_bot_token # receive from https://t.me/BotFather
+   chat_id: telegram_user_chat_id # receive from https://t.me/userinfobot
+backup_targets:
+  - type: database
+    name: db_of_project1
+    db_type: mongodb # mongodb, postgres, mysql, mariadb, sqlite, mssql
+    database_name: database_name
+    host: localhost
+    port: 27017
+    username: admin
+    password: admin123
+    schedule: daily # hourly, daily, weekly, monthly
+    path: /path/to/database.db # only required for sqlite
+  - type: folder
+    name: logs_folder
+    path: /path/to/folder
+  - type: docker_volume
+    name: backup_name
+    volume_name: volume_name # find using `docker volume ls`
